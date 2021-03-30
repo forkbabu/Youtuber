@@ -17,10 +17,8 @@ jobs:
         with:
           issue-number: 3
           comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by Sayantan Das.
-            - pong ${{ github.event.client_payload.slash_command.args.all }}
+          run: |
+             echo ${{ github.event.client_payload.slash_command.args.unnamed.all }}
+          #${{ github.event.client_payload.slash_command.args.all }}
           reactions: '+1'
 
