@@ -19,6 +19,8 @@ jobs:
           comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
           run: |
              echo ${{ github.event.client_payload.slash_command.args.unnamed.all }}
+          body: |
+            - Gaar Maran.
           #${{ github.event.client_payload.slash_command.args.all }}
           reactions: '+1'
 
