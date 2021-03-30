@@ -18,6 +18,6 @@ jobs:
           youtube-dl --extract-audio --audio-format mp3 --prefer-ffmpeg "$(< file.txt)"
           mv *.mp3 song.mp3
       - uses: actions/upload-artifact@v2
-      with:
-      name: Song
-      path: song.mp3
+        with:
+          name: Song
+          path: song.mp3
