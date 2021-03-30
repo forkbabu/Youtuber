@@ -1,0 +1,23 @@
+name: download mp3
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: cml_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip3 install -U youtube-dl
+          youtube-dl --extract-audio --audio-format mp3 --prefer-ffmpeg "$(< file.txt)"
+          mv *.mp3 song.mp3
+      - uses: actions/upload-artifact@v2
+      with:
+      name: Song
+      path: song.mp3
