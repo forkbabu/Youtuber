@@ -8,11 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-- run: |
-    pip3 install -U youtube-dl
-    youtube-dl --extract-audio --audio-format mp3 --prefer-ffmpeg $(cat < file.txt)
-    mv *.mp3 song.mp3
-- uses: actions/upload-artifact@v2
-  with:
-    name: Song
-    path: song.mp3
+      - run: |
+         pip3 install -U youtube-dl
+         youtube-dl --extract-audio --audio-format mp3 --prefer-ffmpeg $(cat < file.txt)
+         mv *.mp3 song.mp3
+      - uses: actions/upload-artifact@v2
+        with:
+             name: Song
+             path: song.mp3
